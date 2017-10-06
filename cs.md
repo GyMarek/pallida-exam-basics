@@ -32,8 +32,11 @@ The application is accepted if:
 
 ###  What is the difference between a function and a method? [2p]
 #### Your answer:
-[add your answer here]
+Method is a function associated with a class. Methods are called using instance or object and are used to manipuate instance variable of a class.
+Every method is a function but not every function is a method.
 
 ### What is the constructor? When it is used? [2p]
 #### Your answer:
-[add your answer here]
+The constructor is called, whenever a class or struct is created and it has a same naem as the class or struct, and initialize the data members of the new object.
+An instance constructor is a member that implements the actions required to initialize an instance of a class.
+A constructor is invoked when you use the "new" operator, or use the various methods of reflection to create an instance of a class.
