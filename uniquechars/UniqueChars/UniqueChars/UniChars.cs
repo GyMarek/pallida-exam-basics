@@ -8,31 +8,21 @@ namespace UniqueChars
 {
     public class UniChars
     {
-        public char[] UniqueCharacters(string input, int maxRepeat)
+        public char[] UniqueCharacters(string input)
         {
-            if (input.Length == 0)
-            {
-                return input;
-            } 
+            input = input.Replace(" ", String.Empty).ToLower();
+            char[] uniqueChar= input.ToCharArray();
+            Array.Sort(uniqueChar);
 
-            StringBuilder b = new StringBuilder;
-            Char[] chars = input.ToCharArray();
-            Char lastChar = chars[0];
-            int repeat = 0;
-            for (int i = 1; i < input.Length; i++)
+            for (int i = 0; i < uniqueChar.Length; i++)
             {
-                if (chars[i] == lastChar && ++repeat < maxRepeat)
+                if (i == i + 1)
                 {
-                    b.Append(chars[i]);
-                }
-                else
-                {
-                    b.Append(chars[i]);
-                    repeat = 0;
-                    lastChar = chars[i];
+                    uniqueChar.ElementAt(i);
+                    uniqueChar.ElementAt(i + 1);
                 }
             }
-            return b.ToString();
+            return uniqueChar;
         }
     }
 }
