@@ -8,18 +8,31 @@ namespace UniqueChars
 {
     public class UniChars
     {
-        // Create a method called `UniqueCharacters` that takes a string as parameter
-        // and returns a list with the unique letters of the given string
-        // Create basic unit tests for it with at least 3 different test cases
-        // Print the characters from that list in the following format:
-        // "n", "g", "r", "m"
-
-
-        public char[] UniqueCharacters(string input)
+        public char[] UniqueCharacters(string input, int maxRepeat)
         {
-            input = input.Replace(" ", String.Empty);
-            char[] uniqueChars = input.ToCharArray();
-            return uniqueChars;
+            if (input.Length == 0)
+            {
+                return input;
+            } 
+
+            StringBuilder b = new StringBuilder;
+            Char[] chars = input.ToCharArray();
+            Char lastChar = chars[0];
+            int repeat = 0;
+            for (int i = 1; i < input.Length; i++)
+            {
+                if (chars[i] == lastChar && ++repeat < maxRepeat)
+                {
+                    b.Append(chars[i]);
+                }
+                else
+                {
+                    b.Append(chars[i]);
+                    repeat = 0;
+                    lastChar = chars[i];
+                }
+            }
+            return b.ToString();
         }
     }
 }
